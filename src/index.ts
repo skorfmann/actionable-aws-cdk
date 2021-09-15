@@ -3,23 +3,29 @@ import { Construct } from 'constructs';
 
 const ACTIONS_TOKEN_URL = 'https://vstoken.actions.githubusercontent.com';
 export interface ActionableAwsProps {
-  /*
-    e.g. limit to 'myuser/repo' or 'myorg/*'
-  */
+  /**
+   * e.g. limit to 'myuser/repo' or 'myorg/*'
+   *
+   * @stability stable
+   */
   readonly repoName: string;
 
-  /*
-    e.g. limit to 'main' branch with 'ref:refs/heads/main'
-    Defaults to * which matches all branches in the given repo
-  */
+  /**
+   * e.g. limit to 'main' branch with 'ref:refs/heads/main'
+   * Defaults to * which matches all branches in the given repo
+   *
+   * @stability stable
+   */
   readonly gitScope?: string;
 
-  /*
-    How to verify and get a new thumbPrint is described here
-    https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_create_oidc_verify-thumbprint.html
-
-    Defaults to 'a031c46782e6e6c662c2c87c76da9aa62ccabd8e'
-  */
+  /**
+   * How to verify and get a new thumbPrint is described here
+   * https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_providers_create_oidc_verify-thumbprint.html
+   *
+   * Defaults to 'a031c46782e6e6c662c2c87c76da9aa62ccabd8e'
+   *
+   * @stability stable
+   */
   readonly thumbPrint?: string;
 }
 export class ActionableAwsRole extends Construct {
