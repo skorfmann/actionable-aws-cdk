@@ -1,5 +1,5 @@
 import * as iam from '@aws-cdk/aws-iam';
-import { Construct } from 'constructs';
+import * as cdk from '@aws-cdk/core';
 
 const ACTIONS_TOKEN_URL = 'https://vstoken.actions.githubusercontent.com';
 export interface ActionableAwsProps {
@@ -28,11 +28,11 @@ export interface ActionableAwsProps {
    */
   readonly thumbPrint?: string;
 }
-export class ActionableAwsRole extends Construct {
+export class ActionableAwsRole extends cdk.Construct {
   public readonly role: iam.Role;
   public readonly oidcProvider: iam.OpenIdConnectProvider;
 
-  constructor(scope: Construct, id: string, props: ActionableAwsProps) {
+  constructor(scope: cdk.Construct, id: string, props: ActionableAwsProps) {
     super(scope, id);
 
     // How to verify and get a new thumbPrint is described here
@@ -47,7 +47,12 @@ export class ActionableAwsRole extends Construct {
 
     this.role = new iam.Role(this, 'Role', {
       assumedBy: new iam.WebIdentityPrincipal(this.oidcProvider.openIdConnectProviderArn,
-        { StringLike: `vstoken.actions.githubusercontent.com:sub: repo${repoName}:${gitScope}` }),
+        {
+          StringLike: {
+            'vstoken.actions.githubusercontent.com:sub': `repo:${repoName}:${gitScope}`,
+          },
+        },
+      ),
     });
   }
 }

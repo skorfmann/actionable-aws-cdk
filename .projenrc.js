@@ -2,11 +2,11 @@ const { AwsCdkConstructLibrary } = require('projen');
 const project = new AwsCdkConstructLibrary({
   author: 'Sebastian Korfmann',
   authorAddress: 'sebastian@korfmann.net',
-  cdkVersion: '1.95.2',
+  cdkVersion: '1.122.0',
   defaultReleaseBranch: 'main',
   name: 'actionable-aws-cdk',
   repositoryUrl: 'https://github.com/sebastian/actionable-aws-cdk.git',
-  cdkDependencies: ['@aws-cdk/aws-iam'],
+  cdkDependencies: ['@aws-cdk/aws-iam', '@aws-cdk/core'],
   // cdkTestDependencies: undefined,  /* AWS CDK modules required for testing. */
   // deps: [],                        /* Runtime dependencies of this module. */
   // description: undefined,          /* The description is just a string that helps people understand the purpose of the package. */

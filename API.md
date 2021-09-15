@@ -14,7 +14,7 @@ new ActionableAwsRole(scope: Construct, id: string, props: ActionableAwsProps)
 
 ##### `scope`<sup>Required</sup> <a name="actionable-aws-cdk.ActionableAwsRole.parameter.scope"></a>
 
-- *Type:* [`constructs.Construct`](#constructs.Construct)
+- *Type:* [`@aws-cdk/core.Construct`](#@aws-cdk/core.Construct)
 
 ---
 
