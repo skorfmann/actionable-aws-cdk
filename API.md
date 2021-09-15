@@ -77,7 +77,17 @@ public readonly repoName: string;
 
 ---
 
-##### `thumbPrint`<sup>Required</sup> <a name="actionable-aws-cdk.ActionableAwsProps.property.thumbPrint"></a>
+##### `gitScope`<sup>Optional</sup> <a name="actionable-aws-cdk.ActionableAwsProps.property.gitScope"></a>
+
+```typescript
+public readonly gitScope: string;
+```
+
+- *Type:* `string`
+
+---
+
+##### `thumbPrint`<sup>Optional</sup> <a name="actionable-aws-cdk.ActionableAwsProps.property.thumbPrint"></a>
 
 ```typescript
 public readonly thumbPrint: string;
